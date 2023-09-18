@@ -1,6 +1,7 @@
 #ifndef COMMAND_DISPATCHER_DOT_H
 #define COMMAND_DISPATCHER_DOT_H
 
+#include <cstdlib>
 #include <string>
 #include "./commands/ComputationContext.h"
 #include "ObjectFactory.h"
@@ -28,6 +29,6 @@ public:
 };
 
 // Initialize the ObjectFactory with your XML file path
-ObjectFactory CommandDispatcher::objectFactory("/Users/midhundarvin/workplace/c++/cpp-plugin-arch/config.xml");
+ObjectFactory CommandDispatcher::objectFactory(std::getenv("CONFIG_FILE"));
 
 #endif

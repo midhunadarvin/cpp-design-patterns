@@ -18,12 +18,18 @@ private:
 public:
     ObjectFactory(std::string xmlfile)
     {
-        plugins = XMLHelper::LoadConfig(xmlfile);
+        try
+        {
+            plugins = XMLHelper::LoadConfig(xmlfile);
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+            std::cout << "Error when loading config.xml file" << std::endl;
+        }
     }
-
 
     std::shared_ptr<BaseComputationCommand> Get(std::string archetype, std::string mode = "singleton");
 };
-
 
 #endif

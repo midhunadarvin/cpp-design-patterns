@@ -47,7 +47,18 @@ cmake ..;
 make;
 ```
 
-##### 2. Build the application
+##### 2. Set the environment variables
+
+Execute these commands in the terminal. 
+```
+// Absolute path to the build folder of the previous step
+export PLUGINS_FOLDER_PATH=/Users/midhundarvin/workplace/c++/cpp-plugin-arch/commands/build
+
+// Absolute path to the config.xml given in the repo.
+export CONFIG_FILE=/Users/midhundarvin/workplace/c++/cpp-plugin-arch/config.xml
+```
+
+##### 3. Build the application
 
 Go to the root folder of the project and execute the following terminal commands
 ```
@@ -59,8 +70,3 @@ make;
 ```
 
 This will build the application and the compiled output will be in the location `build/CppPluginArch`
-
-
-#### TODOs
-
-- Pass the config.xml file location and the commands folder location as env variables. Currently it is hard-coded, please note you will have to update the path in the code before building.

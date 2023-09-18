@@ -1,14 +1,17 @@
 #include "commands/BaseComputationCommand.h"
 #include "TypeFactory.h"
+#include <cstdlib>
+#include <string>
 
 void TypeFactory::updateLibs()
 {
     std::cout << "Checking for new libs" << std::endl;
+    std::string pluginsFolderPath = std::getenv("PLUGINS_FOLDER_PATH");
 
 #if __APPLE__
-    const std::string libGlob("/Users/midhundarvin/workplace/c++/cpp-plugin-arch/commands/build/*.dylib");
+    const std::string libGlob(pluginsFolderPath + "/*.dylib");
 #else
-    const std::string libGlob("/Users/midhundarvin/workplace/c++/cpp-plugin-arch/commands/build/*.so");
+    const std::string libGlob(pluginsFolderPath + "/*.so");
 #endif
 
     std::vector<std::string> filenames = globothy(libGlob);
