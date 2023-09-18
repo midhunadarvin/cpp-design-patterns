@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<plugins>
+    <plugin archetype="OrdindaryCitizen"
+        command="OrdinaryCitizenCommand" />
+    <plugin
+        archetype="SeniorCitizen"
+        command="SeniorCitizenCommand" />
+</plugins>

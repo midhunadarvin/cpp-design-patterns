@@ -1,0 +1,5 @@
+*.exe
+lib/*
+build
+.vscode
+.DS_Store
