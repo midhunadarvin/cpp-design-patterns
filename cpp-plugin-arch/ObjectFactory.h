@@ -6,8 +6,6 @@
 #include <typeinfo> // Include the header for typeid
 #include <memory> // Include the header for std::make_shared
 #include "commands/BaseComputationCommand.h"
-#include "commands/SeniorCitizenCommand.h"
-#include "commands/OrdinaryCitizenCommand.h"
 
 class ObjectFactory
 {

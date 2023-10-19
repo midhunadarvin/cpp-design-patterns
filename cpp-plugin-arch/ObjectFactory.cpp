@@ -5,8 +5,6 @@
 #include <cxxabi.h> // For demangling
 #include "ObjectFactory.h"
 #include "commands/BaseComputationCommand.h"
-#include "commands/SeniorCitizenCommand.h"
-#include "commands/OrdinaryCitizenCommand.h"
 #include "TypeFactory.h"
 
 std::shared_ptr<BaseComputationCommand> ObjectFactory::Get(std::string archetype, std::string mode)

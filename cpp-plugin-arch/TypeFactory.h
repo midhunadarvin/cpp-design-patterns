@@ -1,8 +1,6 @@
 #include "commands/BaseComputationCommand.h"
 #include <string>
 #include <unordered_map>
-#include "commands/SeniorCitizenCommand.h"
-#include "commands/OrdinaryCitizenCommand.h"
 #include "util/globothy.h"
 #include "util/libnameothy.h"
 #include <set>
