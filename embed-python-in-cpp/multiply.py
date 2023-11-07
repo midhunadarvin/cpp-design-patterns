@@ -1,6 +1,15 @@
-def multiply(a, b):
-    print("Will compute", a, "times", b)
+def preExecute(context):
+    return True
+
+def execute(context):
+    print("Will compute", context["key1"], "times", context["key2"])
+    a = int(context["key1"])
+    b = int(context["key2"])
     c = 0
     for i in range(0, a):
         c = c + b
-    return c
+    print(c)
+    return True
+
+def postExecute(context):
+    return True
