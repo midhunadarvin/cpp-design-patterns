@@ -8,3 +8,5 @@ __pycache__
 *.dSYM
 cmake-build-debug
 .idea
+log.txt
+Logstorage.db
