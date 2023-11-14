@@ -3,11 +3,16 @@
 #include "../content-writer/BaseContentWriter.h"
 #include "../content-writer/FileContentWriter.h"
 
-class FileLogStrategy: public LogStrategy
+class FileLogStrategy : public LogStrategy
 {
-    BaseContentWriter *wt = new FileContentWriter("log.txt");
+public:
+    FileLogStrategy()
+    {
+        this->wt = new FileContentWriter("log.txt");
+    }
+
     bool DoLog(std::string logitem) override
     {
-        return wt->Write(logitem);
+        return this->wt->Write(logitem);
     }
 };

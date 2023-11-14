@@ -1,4 +1,5 @@
 #pragma once
+#include <thread>
 #include "IContentWriter.h"
 #include "../util/ThreadSafeQueue.h"
 
@@ -19,14 +20,13 @@ public:
     bool Flush()
     {
         std::string content;
-        int count = 0;
-        while (!_queue->empty() && count <= 10)
+  
+        while (!_queue->empty())
         {
             content = std::string(_queue->pop());
             //--- Write to Appropriate Media
             //--- Calls the Overriden method
             WriteToMedia(content);
-            count++;
         }
         return true;
     }
@@ -38,10 +38,15 @@ public:
             return true;
 
         // Do flush in a separate thread
-        std::lock_guard<std::mutex> lock(mutex_);
-        Flush();
+        // std::lock_guard<std::mutex> lock(mutex_);
+        // std::thread t1(&BaseContentWriter::Flush, this);
+        // t1.detach();
 
         return true;
+    }
+
+    bool Empty() {
+        return _queue->size() == 0;
     }
 
 private:

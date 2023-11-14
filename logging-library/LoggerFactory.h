@@ -11,12 +11,12 @@ public:
     static LogStrategy *CreateLogger(std::string loggertype)
     {
         if (loggertype == "DB")
-            return new DbLogStrategy();
+            return (LogStrategy *) new DbLogStrategy();
         else if (loggertype == "FILE")
-            return new FileLogStrategy();
+            return (LogStrategy *) new FileLogStrategy();
         else if (loggertype == "NET")
-            return new NetLogStrategy();
+            return (LogStrategy *) new NetLogStrategy();
         else
-            return new NullLogStrategy();
+            return (LogStrategy *) new NullLogStrategy();
     }
 };

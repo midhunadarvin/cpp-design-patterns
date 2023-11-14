@@ -3,9 +3,13 @@
 #include "../content-writer/BaseContentWriter.h"
 #include "../content-writer/DbContentWriter.h"
 
-class DbLogStrategy: public LogStrategy
+class DbLogStrategy : public LogStrategy
 {
-    BaseContentWriter *wt = new DbContentWriter();
+public:
+    DbLogStrategy(): LogStrategy()
+    {
+        this->wt = new DbContentWriter();
+    }
     bool DoLog(std::string logitem) override
     {
         return wt->Write(logitem);

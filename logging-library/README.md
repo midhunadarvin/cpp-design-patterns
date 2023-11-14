@@ -14,8 +14,8 @@ This library uses the following design patterns :
 - Template method pattern
 - Strategy pattern
 - Factory pattern 
+- Singleton pattern
 
 TODO: 
 - refactor with generic factory pattern
-- add singleton
 - add prototype based cloning

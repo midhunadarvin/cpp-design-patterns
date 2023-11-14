@@ -4,16 +4,15 @@
  */
 #include <iostream>
 #include <cstring>
-#include "LoggerFactory.h"
-#include "strategy/LogStrategy.h"
+#include "Logger.h"
 
-static bool Table(LogStrategy *ls)
+static bool Table(Logger *ls)
 {
     int a = 10;
     int b = 1;
     while (b < 100)
     {
-        ls->Log("Table", std::to_string(a) + " * " + std::to_string(b), "=" + std::to_string(a*b));
+        ls->Log("Table", std::to_string(a) + " * " + std::to_string(b), "=" + std::to_string(a * b));
         b++;
     }
     return true;
@@ -21,12 +20,12 @@ static bool Table(LogStrategy *ls)
 
 int main()
 {
-    // TODO: Read this from a configuration file
-    std::string loggertype = "FILE";
-
-    LogStrategy *lf = LoggerFactory::CreateLogger(loggertype);
+    /**
+     * Creating via Logger singleton class will start a thread, that
+     * listens for log inputs and outputs them asyncronously
+     */
+    Logger *logger = Logger::getInstance();
     //-- somewhere out in the module
-    Table(lf);
-
+    Table(logger);
     return 0;
 }
