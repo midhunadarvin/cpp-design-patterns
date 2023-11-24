@@ -1,0 +1,36 @@
+<workflow>
+    <level id="1">
+        <workflow-item>
+            <command>ImportCsv</command>
+            <params>
+                <param id="file" value="/Users/midhundarvin/workplace/c++/cpp-design-patterns/graphs/grades.csv"/>
+            </params>
+        </workflow-item>
+    </level>
+    <level id="2">
+        <workflow-item>
+            <command>CalculateSum</command>
+            <params>
+                <param id="inputFields"
+                       value="[&quot;Test1&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test4&quot;]"/>
+                <param id="outputField" value="Sum"/>
+            </params>
+        </workflow-item>
+        <workflow-item>
+            <command>CalculateAverage</command>
+            <params>
+                <param id="inputFields"
+                       value="[&quot;Test1&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test4&quot;]"/>
+                <param id="outputField" value="Average"/>
+            </params>
+        </workflow-item>
+    </level>
+    <level id="3">
+        <workflow-item>
+            <command>ExportCsv</command>
+            <params>
+                <param id="file" value="/Users/midhundarvin/workplace/c++/cpp-design-patterns/graphs/grades_processed.csv"/>
+            </params>
+        </workflow-item>
+    </level>
+</workflow>
