@@ -1,0 +1,13 @@
+<tree>
+    <node id="root" value="root">
+        <children>
+            <node id="child1" value="child1">
+                <children>
+                    <node id="grandChild1" value="grandChild1" />
+                    <node id="grandChild2" value="grandChild2" />
+                </children>
+            </node>
+            <node id="child2" value="child2" />
+        </children>
+    </node>
+</tree>
