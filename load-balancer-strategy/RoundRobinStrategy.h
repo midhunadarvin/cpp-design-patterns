@@ -1,12 +1,14 @@
 #pragma once
+#include <any>
 #include "LoadBalancerStrategy.h"
 
 // Concrete implementation of a round-robin load balancing strategy
-class RoundRobinStrategy : public LoadBalancingStrategy {
+template <class T>
+class RoundRobinStrategy : public LoadBalancingStrategy<T> {
 public:
-    int selectServer(const std::vector<int>& serverLoads) const override {
+    T selectServer(const std::vector<T>& servers) const override {
         static int currentIndex = -1;
-        currentIndex = (currentIndex + 1) % serverLoads.size();
-        return currentIndex;
+        currentIndex = (currentIndex + 1) % servers.size();
+        return servers[currentIndex];
     }
 };

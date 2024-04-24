@@ -11,31 +11,33 @@ int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
     // Create load balancer with round-robin strategy
-    LoadBalancer roundRobinBalancer(new RoundRobinStrategy());
+    LoadBalancer<int> roundRobinBalancer(new RoundRobinStrategy<int>());
 
     // Add servers to the load balancer
-    roundRobinBalancer.addServer();
-    roundRobinBalancer.addServer();
-    roundRobinBalancer.addServer();
+    roundRobinBalancer.addServer(1);
+    roundRobinBalancer.addServer(2);
+    roundRobinBalancer.addServer(3);
 
     // Simulate incoming requests
     for (int i = 0; i < 10; ++i) {
-        roundRobinBalancer.request();
+        int server = roundRobinBalancer.requestServer();
+        std::cout << "Request sent to server " << server << std::endl;
     }
 
     std::cout << std::endl;
 
     // Create load balancer with random strategy
-    LoadBalancer randomBalancer(new RandomStrategy());
+    LoadBalancer<int> randomBalancer(new RandomStrategy<int>());
 
     // Add servers to the load balancer
-    randomBalancer.addServer();
-    randomBalancer.addServer();
-    randomBalancer.addServer();
+    randomBalancer.addServer(1);
+    randomBalancer.addServer(2);
+    randomBalancer.addServer(3);
 
     // Simulate incoming requests
     for (int i = 0; i < 10; ++i) {
-        randomBalancer.request();
+        int server = randomBalancer.requestServer();
+        std::cout << "Request sent to server " << server << std::endl;
     }
 
     return 0;
