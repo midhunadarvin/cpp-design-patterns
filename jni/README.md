@@ -57,3 +57,5 @@ This example shows how to load a shared object / dynamic library built with C/C+
     ```
     java -cp . -Djava.library.path=. HelloJNI
     ```
+
+Reference : https://www.baeldung.com/jni
